@@ -67,10 +67,6 @@ export function Setup(): React.ReactElement {
         glitch: shuffledGlitches[index],
     }));
 
-    console.log(
-        btoa(unescape(encodeURIComponent(JSON.stringify(gameDescriptor))))
-    );
-
     return (
         <main className={sharedStyles.column}>
             <ul>
@@ -129,7 +125,13 @@ export function Setup(): React.ReactElement {
             <button
                 onClick={() =>
                     navigator.clipboard.writeText(
-                        btoa(JSON.stringify(gameDescriptor))
+                        btoa(
+                            unescape(
+                                encodeURIComponent(
+                                    JSON.stringify(gameDescriptor)
+                                )
+                            )
+                        )
                     )
                 }
             >
